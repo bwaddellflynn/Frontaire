@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Frontaire</title>
+    <title>FrontaireEcommerce</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,10 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="text-white bg-dark">
-    <%= render "layouts/navbar" %>
-    <div class="m-5">
-      <%= yield %>
-    </div>
+  <body>
+    <%= yield %>
   </body>
 </html>
