@@ -14,10 +14,10 @@ group :development, :test do
  gem 'sqlite3'
 end
 
-=begin group :production do
+group :production do
   gem 'pg'
 end
-=end
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
