@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @travelguide %>
+
+<div>
+  <%= link_to "Edit this travelguide", edit_travelguide_path(@travelguide) %> |
+  <%= link_to "Back to travelguides", travelguides_path %>
+
+  <%= button_to "Destroy this travelguide", @travelguide, method: :delete %>
+</div>

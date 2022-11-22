@@ -9,9 +9,11 @@
     </div>
   </div>
 </header>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(42,75,86); background: linear-gradient(114deg, rgba(42,75,86,1) 0%, rgba(65,94,104,1) 100%);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="#1E414C.png" alt="Frontaire Logo"></a>
+    <a class="navbar-brand" href="#">
+      <%= image_tag "frontaire.png", height: 70 %>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +23,7 @@
           <%= link_to 'Home', flights_path, class: 'nav-link ' + active_class(flights_path) %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Travel Guides', travelguides_path, class: 'nav-link ' + active_class(travelguidess_path)%>
+          <%= link_to 'Travel Guides', travelguides_path, class: 'nav-link ' + active_class(travelguides_path)%>
         </li>
         <li class="nav-item">
           <%= link_to 'Customer Support', customersupport_path, class: 'nav-link ' + active_class(customersupport_path) %>
