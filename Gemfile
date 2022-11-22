@@ -18,6 +18,15 @@ group :production do
   gem 'pg'
 end
 
+# needed for bootstrap javascript
+gem 'jsbundling-rails'
+
+# Install bootstrap 5
+gem 'cssbundling-rails'
+
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
