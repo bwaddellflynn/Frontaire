@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'sassc-rails'
 gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -16,6 +17,7 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 
 # Use activeadmin to create init used for configuring admin panel view
+gem 'devise'
 gem 'activeadmin'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
