@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="admin_contents">
+  <% @admin_contents.each do |admin_content| %>
+    <h1><%= admin_content.header %></h1>
+    <p><%= admin_content.content %></p>
+  <% end %>
+</div>

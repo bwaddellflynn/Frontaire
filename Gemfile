@@ -16,6 +16,9 @@ gem "sqlite3", "~> 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+gem 'faker'
+gem 'csv'
+
 # Use activeadmin to create init used for configuring admin panel view
 gem 'devise'
 gem 'activeadmin'

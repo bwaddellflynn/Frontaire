@@ -1,0 +1,2 @@
+class AdminContent < ApplicationRecord
+end

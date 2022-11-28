@@ -1,0 +1,2 @@
+class Iata < ApplicationRecord
+end
