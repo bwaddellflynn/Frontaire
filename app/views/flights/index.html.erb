@@ -1,14 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Flights</h1>
-
 <div id="flights">
+<div class="d-flex">
+  <div class="row lg-12 md-12 m-3 p-2">
   <% @flights.each do |flight| %>
-    <%= render flight %>
-    <p>
-      <%= link_to "Show this flight", flight %>
-    </p>
-  <% end %>
-</div>
+    <div class="col lg-4 md-4">
+        <div class="card bg-secondary m-3 text-center" style="width: 18rem;">
+            <img src='' class="card-img-top" alt="Flight Destination Image">
+            <div class="card-body">
+              <div id="<%= dom_id flight %>">
+                <h5 class="card-title">
+                  <%= truncate flight.destination, :length => 25 %>
+                </h5>
 
-<%= link_to "New flight", new_flight_path %>
+                <p>
+                  <strong><%= flight.flight_date.strftime("%A, %B %e, %Y") %></strong>
+                </p>
+
+                <p>
+                  <strong><%= flight.departure_iata %> ➟ <%= flight.arrival_iata %></strong>
+                </p>
+
+                <p>
+                  $<%= flight.price %>
+                </p>
+              </div>
+              <p>
+                <%= link_to "See Flight Details", flight, class: 'btn btn-dark' %>
+              </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

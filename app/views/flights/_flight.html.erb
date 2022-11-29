@@ -1,10 +1,5 @@
 <div id="<%= dom_id flight %>">
   <p>
-    <strong>Ticket:</strong>
-    <%= flight.ticket_id %>
-  </p>
-
-  <p>
     <strong>Destination:</strong>
     <%= flight.destination %>
   </p>
@@ -35,18 +30,8 @@
   </p>
 
   <p>
-    <strong>Departure icao:</strong>
-    <%= flight.departure_icao %>
-  </p>
-
-  <p>
-    <strong>Arrival icao:</strong>
-    <%= flight.arrival_icao %>
-  </p>
-
-  <p>
     <strong>Price:</strong>
-    <%= flight.price %>
+    $<%= flight.price %>
   </p>
 
   <p>
