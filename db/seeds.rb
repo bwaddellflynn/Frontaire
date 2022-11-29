@@ -20,24 +20,37 @@ end
 =end
 
 csv_text = File.read(Rails.root.join('lib', 'assets', 'iata_codes.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
 csv.each do |row|
-  puts row.to_hash
+  departure_iata = DepartureIata.create(
+    code:row['Code'],
+    location:row['Location'],
+    country:row['Country']
+  )
+  arrival_iata = ArrivalIata.create(
+    code:row['Code'],
+    location:row['Location'],
+    country:row['Country']
+  )
 end
 
+100.times do
+  flight = Flight.create(
 
+    offsetDeparture = rand(DepartureIata.count)
+    offsetArrival = rand(ArrivalIata.count)
+    departure = rand(DepartureIata.count)
+    arrival = rand(ArrivalIata.count)
+    departureDate = Faker::Date.between(from: '2023-01-01', to: '2023-01-05')
+    arrivalDate = Faker::Date.forward(days: 3)
 
-=begin
-do
-  flight = Flight.new(
-    destination:
-    flight_date:
-    departure_time:arr_scheduled_time_arr
-    arrival_time:arr_scheduled_time_dep
-    departure_iata:dep_iata
-    arrival_iata:arr_iata
-    price:
-    vaccancy:
+    destination: arrival.location,
+    flight_date: departureDate,
+    departure_time:Faker::Time.between_dates(from: departureDate - 1, to: departureDate, period: :all),
+    arrival_time: Faker::Time.between_dates(from: arrivalDate - 1, to: arrivalDate, period: :all),
+    departure_iata: depature,
+    arrival_iata: arrival,
+    price: Faker::Number.decimal(l_digits: 3, r_digits: 3)
+    vaccancy: true;
   )
-  flight.save!
-=end
+end

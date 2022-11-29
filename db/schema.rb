@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_152557) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_014118) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -44,22 +44,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_152557) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "arrival_iata", force: :cascade do |t|
+  create_table "arrival_iata", id: false, force: :cascade do |t|
     t.string "code"
     t.string "location"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "departure_iata", force: :cascade do |t|
+  create_table "departure_iata", id: false, force: :cascade do |t|
     t.string "code"
     t.string "location"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "flights", force: :cascade do |t|
-    t.integer "ticket_id"
+  create_table "flights", primary_key: "ticket_id", force: :cascade do |t|
     t.string "destination"
     t.datetime "flight_date"
     t.datetime "departure_time"

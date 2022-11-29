@@ -1,0 +1,19 @@
+Breandan (14):
+      Added car test model and migrated to db
+      Updates for heroku deploy
+      Updates for heroku deploy
+      Corrected updates for heroku test  deploy
+      update ruby version
+      update ruby version
+      Added bootstrap dependencies
+      Recreated project to initialize Bootstrap framework
+      Added scaffolding for Travelguide and Flights. Created pages for customer support, profile and about. Added navbar and company logo
+      Updating CSS Styling to better align with branding
+      Added activeadmin
+      Added active admin panel
+      Added devise gem and users table
+      Created seed script for IATA code tables to import from CSV
+
+Breandan Waddell-Flynn (1):
+      Initial commit
+
