@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search', to: 'search#index'
   resources :admin_contents
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "flights#index"
+  root to: "flights#index"
   get "/about", to: "admin_contents#index"
   get "/profiles", to: "profiles#index"
   get "/customersupport", to: "customersupport#index"

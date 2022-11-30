@@ -1,0 +1,22 @@
+<h1 class="text-center"><%= pluralize(@flight.count, "Result")%></h1>
+<div class="container">
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th><%= sort_link(@query,:destination, "Destination")%></th>
+        <th><%= sort_link(@query,:arrival_iata, "Arriving")%></th>
+        <th><%= sort_link(@query,:departure_iata, "Departing")%></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @flight.each do |flight| %>
+      <tr>
+        <td><%= link_to flight.destination, flight%></td>
+        <td><%= link_to flight.arrival_iata, flight%></td>
+        <td><%= link_to flight.departure_iata, flight%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>
