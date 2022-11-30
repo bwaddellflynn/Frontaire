@@ -6,8 +6,12 @@
   <div class="row lg-12 md-12 m-3 p-2">
   <% @flights.each do |flight| %>
     <div class="col lg-4 md-4">
-        <div class="card bg-secondary m-3 text-center" style="width: 18rem;">
-            <img src='' class="card-img-top" alt="Flight Destination Image">
+        <div class="card bg-secondary m-3 p-3 text-center" style="width: 18rem;">
+            <% if flight.image.present?%>
+            <div class="card-img-top thumbnail">
+              <%= image_tag(flight.image, :class => "rounded thumbnail")%>
+            </div>
+           <% end %>
             <div class="card-body">
               <div id="<%= dom_id flight %>">
                 <h5 class="card-title">

@@ -10,6 +10,8 @@
 require 'faker'
 require 'csv'
 require 'securerandom'
+require 'open-uri'
+
 =begin
 10.times do
   travelguide = Travelguide.create(
@@ -23,33 +25,38 @@ end
 csv_text = File.read(Rails.root.join('lib', 'assets', 'iata_codes.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
 csv.each do |row|
-  departure_iata = DepartureIata.create(
+  departure_iata = DepartureIata.create[]
     code:row['Code'],
     location:row['Location'],
     country:row['Country']
-  )
-  arrival_iata = ArrivalIata.create(
+  ]
+  arrival_iata = ArrivalIata.create[
     code:row['Code'],
     location:row['Location'],
     country:row['Country']
-  )
+  ]
 end
 =end
 
-99.times do
+Flight.destroy_all
+
+200.times do
   departure = DepartureIata.all.sample
   arrival = ArrivalIata.all.sample
   departureDate = Faker::Date.between(from: '2023-01-01', to: '2023-01-05')
   arrivalDate = departureDate + rand(2).days
 
-  Flight.create(
-    destination: arrival.location,
-    flight_date: departureDate,
-    departure_time: Faker::Time.between_dates(from: departureDate, to: departureDate, period: :all),
-    arrival_time: Faker::Time.between_dates(from: arrivalDate + 1, to: arrivalDate + 1, period: :all),
-    departure_iata: departure.code,
-    arrival_iata: arrival.code,
-    price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
-    vaccancy: true
-  )
+  p = Flight.create(destination: arrival.location,
+                    flight_date: departureDate,
+                    departure_time: Faker::Time.between_dates(from: departureDate, to: departureDate, period: :all),
+                    arrival_time: Faker::Time.between_dates(from: arrivalDate + 1, to: arrivalDate + 1, period: :all),
+                    departure_iata: departure.code,
+                    arrival_iata: arrival.code,
+                    price: Faker::Number.decimal(l_digits: 3, r_digits: 3),
+                    vaccancy: true)
+
+  puts "Creating #{p.destination}"
+
+  downloaded_image = open("https://source.unsplash.com/200x200/?#{p.destination}")
+  p.image.attach(io: downloaded_image, filename: "m-#{p.destination}.jpg")
 end
