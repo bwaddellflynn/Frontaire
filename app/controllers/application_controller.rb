@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     @query = Flight.ransack(params[:q])
     @flight = @query.result(distinct: true)
   end
+
+  def initialize_session
+
+  end
 end

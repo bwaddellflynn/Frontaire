@@ -246,7 +246,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
-    stimulus-rails (1.2.0)
+    stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.11)
@@ -290,6 +290,7 @@ DEPENDENCIES
   faker
   jbuilder
   jsbundling-rails
+  kaminari
   puma (~> 5.0)
   rails (~> 7.0.4)
   ransack (~> 3.2)

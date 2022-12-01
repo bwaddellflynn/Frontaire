@@ -1,9 +1,14 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: %i[ show edit update destroy ]
+  before_action :initialize_session
+  before_action :load_cart
+
 
   # GET /flights or /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight
+      .all
+      .page(params[:page])
   end
 
   # GET /flights/1 or /flights/1.json
@@ -57,6 +62,18 @@ class FlightsController < ApplicationController
     end
   end
 
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to flights_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete_at(session[:cart].index(id))
+    redirect_to flights_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flight
@@ -66,5 +83,13 @@ class FlightsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def flight_params
       params.require(:flight).permit(:ticket_id, :destination, :flight_date, :departure_time, :arrival_time, :departure_iata, :arrival_iata, :departure_icao, :arrival_icao, :price, :vaccancy)
+    end
+
+    def initialize_session
+      session[:cart] ||= []
+    end
+
+    def load_cart
+      @cart = Flight.find(session[:cart])
     end
 end

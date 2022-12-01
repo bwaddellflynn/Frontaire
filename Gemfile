@@ -83,3 +83,5 @@ group :test do
 end
 
 gem "ransack", "~> 3.2"
+
+gem 'kaminari'
