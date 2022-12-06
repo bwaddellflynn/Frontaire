@@ -1,8 +1,7 @@
-class Flight < ApplicationRecord
-  validates :desination, presence: true
+class Product < ApplicationRecord
+  validates :destination, presence: true
   validates :flight_date, presence: true
   validates :departure_time, presence: true
-  validates :arrival_time, presence: true
   validates :departure_iata, presence: true
   validates :departure_iata, length: { is: 3 }
   validates :arrival_iata, presence: true

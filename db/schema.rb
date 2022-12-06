@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_033851) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_192512) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -97,6 +97,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_033851) do
     t.string "arrival_iata"
     t.float "price"
     t.boolean "vaccancy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "destination"
+    t.datetime "flight_date"
+    t.datetime "departure_time"
+    t.string "departure_iata"
+    t.string "arrival_iata"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

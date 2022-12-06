@@ -6,4 +6,16 @@ module ApplicationHelper
       return ''
     end
   end
+
+  def resource_name
+      :flight
+    end
+
+    def resource
+      @resource ||= Flight.new
+    end
+
+    def devise_mapping
+      @devise_mapping ||= Devise.mappings[:flight]
+    end
 end

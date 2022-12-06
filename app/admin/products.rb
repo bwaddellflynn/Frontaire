@@ -1,5 +1,6 @@
-ActiveAdmin.register Flight do
-  permit_params :destination, :flight_date, :departure_time, :arrival_time, :departure_iata, :arrival_iata, :price, :vaccancy, :image
+ActiveAdmin.register Product do
+
+  permit_params :id, :destination, :flight_date, :departure_time,  :departure_iata, :arrival_iata, :price, :image
 
   form do |f|
     f.semantic_errors # shows errors on :base

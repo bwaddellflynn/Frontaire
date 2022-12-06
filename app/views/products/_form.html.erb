@@ -1,0 +1,47 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :destination, style: "display: block" %>
+    <%= form.text_field :destination %>
+  </div>
+
+  <div>
+    <%= form.label :flight_date, style: "display: block" %>
+    <%= form.datetime_field :flight_date %>
+  </div>
+
+  <div>
+    <%= form.label :departure_time, style: "display: block" %>
+    <%= form.datetime_field :departure_time %>
+  </div>
+
+  <div>
+    <%= form.label :departure_iata, style: "display: block" %>
+    <%= form.text_field :departure_iata %>
+  </div>
+
+  <div>
+    <%= form.label :arrival_iata, style: "display: block" %>
+    <%= form.text_field :arrival_iata %>
+  </div>
+
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

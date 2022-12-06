@@ -15,10 +15,10 @@
 
 <h1>Flights</h1>
 <div id="flights">
-<%= paginate @flights%>
+<%= paginate @flight%>
 <div class="d-flex">
   <div class="row lg-12 md-12 m-3 p-2">
-  <% @flights.each do |flight| %>
+  <% @flight.each do |flight| %>
     <div class="col lg-4 md-4">
         <div class="card bg-secondary m-3 p-3 text-center" style="width: 18rem;">
             <% if flight.image.present?%>
@@ -41,7 +41,7 @@
                 </p>
 
                 <p>
-                  $<%= flight.price %>
+                  $<%= flight.price.to_f / 100 %>
                 </p>
               </div>
               <p>
@@ -58,5 +58,5 @@
     <% end %>
     </div>
   </div>
-<%= paginate @flights%>
+<%= paginate @flight%>
 </div>

@@ -6,13 +6,14 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
-    @flights = Flight
+    @flight = Flight
       .all
       .page(params[:page])
   end
 
   # GET /flights/1 or /flights/1.json
   def show
+    @flight = Flight.find(:ticket_id)
   end
 
   # GET /flights/new
@@ -22,6 +23,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1/edit
   def edit
+    @flight = Flight.find(:ticket_id)
   end
 
   # POST /flights or /flights.json
@@ -82,7 +84,7 @@ class FlightsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.require(:flight).permit(:ticket_id, :destination, :flight_date, :departure_time, :arrival_time, :departure_iata, :arrival_iata, :departure_icao, :arrival_icao, :price, :vaccancy)
+      params.require(:flight).permit(:ticket_id, :destination, :flight_date, :departure_time, :arrival_time, :departure_iata, :arrival_iata, :price, :vaccancy, :image)
     end
 
     def initialize_session

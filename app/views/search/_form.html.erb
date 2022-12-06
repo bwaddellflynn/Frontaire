@@ -1,4 +1,4 @@
-<%= search_form_for(@query, url: "/search/#{search_path}", method: :get, class: 'd-flex') do |f| %>
+<%= search_form_for(@query, url: search_path, method: :get, class: 'd-flex') do |f| %>
     <%= f.search_field :destination_or_arrival_iata_or_departure_iata_i_cont,
     placeholder: "Search...",
     class: "form-control me-2"%>
