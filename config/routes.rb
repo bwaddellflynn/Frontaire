@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
+  get 'cart/show'
   resources :products
   get '/search', to: 'search#index'
   resources :admin_contents
