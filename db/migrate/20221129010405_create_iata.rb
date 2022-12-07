@@ -1,4 +1,4 @@
-class CreateIata < ActiveRecord::Migration[7.0]
+=begin class CreateIata < ActiveRecord::Migration[7.0]
   def change
     create_table :departure_iata,:id => false do |t|
       t.string :code
@@ -15,4 +15,4 @@ class CreateIata < ActiveRecord::Migration[7.0]
       t.timestamps
     end
   end
-end
+end =end

@@ -1,4 +1,4 @@
-class CreateFlights < ActiveRecord::Migration[7.0]
+=begin class CreateFlights < ActiveRecord::Migration[7.0]
   def change
     create_table :flights, :id => false do |t|
       t.primary_key :ticket_id
@@ -15,3 +15,4 @@ class CreateFlights < ActiveRecord::Migration[7.0]
     end
   end
 end
+ =end

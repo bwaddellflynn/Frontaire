@@ -21,11 +21,11 @@ require 'open-uri'
 end
 =end
 
-=begin
+
 csv_text = File.read(Rails.root.join('lib', 'assets', 'iata_codes.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
 csv.each do |row|
-  departure_iata = DepartureIata.create[]
+  departure_iata = DepartureIata.create[
     code:row['Code'],
     location:row['Location'],
     country:row['Country']
@@ -36,7 +36,7 @@ csv.each do |row|
     country:row['Country']
   ]
 end
-=end
+
 
 Product.destroy_all
 
