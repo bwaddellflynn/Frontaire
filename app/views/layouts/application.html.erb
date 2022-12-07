@@ -12,11 +12,13 @@
   </head>
 
   <body class="text-white bg-dark">
+    <% cache do %>
     <%= render "layouts/navbar" %>
     <div class="m-5">
       <%= yield %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
+    <% end %>
   </body>
 </html>

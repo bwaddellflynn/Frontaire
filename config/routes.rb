@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
-  get 'cart/show'
+
+  scope '/checkout' do
+    post 'create', to: 'checkoput#create', as: 'checkout_create'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+    get 'sucess', to: 'checkout#success', as: 'checkout_success'
+  end
+
+  get 'cart', to: 'cart#show'
+  post 'cart/add', as: 'cart_add'
+
   resources :products
+  resources :order_items
   get '/search', to: 'search#index'
   resources :admin_contents
   devise_for :users

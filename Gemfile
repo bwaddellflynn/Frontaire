@@ -35,6 +35,10 @@ gem "stimulus-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
@@ -83,5 +87,7 @@ group :test do
 end
 
 gem "ransack", "~> 3.2"
+
+gem "stripe"
 
 gem 'kaminari'

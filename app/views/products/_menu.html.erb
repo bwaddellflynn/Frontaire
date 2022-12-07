@@ -1,0 +1,48 @@
+<div id="products">
+<%= debug session[:order_id] %>
+<%= paginate @product%>
+<div class="d-flex">
+  <div class="row lg-12 md-12 m-3 p-2">
+  <% @product.each do |product| %>
+    <div class="col lg-4 md-4">
+        <div class="card bg-secondary m-3 p-3 text-center" style="width: 18rem;">
+            <% if product.image.present?%>
+            <div class="card-img-top thumbnail">
+              <%= image_tag(product.image, :class => "rounded thumbnail")%>
+            </div>
+           <% end %>
+            <div class="card-body">
+              <div id="<%= dom_id product %>">
+                <h5 class="card-title">
+                  <%= truncate product.destination, :length => 20 %>
+                </h5>
+
+                <p>
+                  <strong><%= product.flight_date.strftime("%A, %B %e, %Y") %></strong>
+                </p>
+
+                <p>
+                  <strong><%= product.departure_iata %> ➟ <%= product.arrival_iata %></strong>
+                </p>
+
+                <p>Book for:
+                  $<%= product.price.to_f / 100 %>
+                </p>
+              </div>
+              <p>
+                <%= link_to "See Flight Details", product, class: 'btn btn-dark' %>
+                <%= form_with model: @order_item, url: cart_add_path, remote: true do |f| %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <div class="d-inline-flex">
+                <%= f.number_field :quantity, value: 1, min: 1, class: 'form-control'%>
+                <%= f.submit "Add To Cart", class: 'btn btn-light' %>
+                </div>
+                <% end %>
+              </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<%= paginate @product%>

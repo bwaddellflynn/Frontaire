@@ -40,7 +40,7 @@ end
 
 Product.destroy_all
 
-1.times do
+30.times do
   departure = DepartureIata.all.sample
   arrival = ArrivalIata.all.sample
   departureDate = Faker::Date.between(from: '2023-01-01', to: '2023-01-05')

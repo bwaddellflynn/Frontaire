@@ -9,5 +9,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: true
   has_one_attached :image
+  has_many :order_items
   max_paginates_per 16
 end
