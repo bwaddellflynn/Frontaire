@@ -297,6 +297,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  mini_portile2
   pg
   puma (~> 5.0)
   rails (~> 7.0.4)
