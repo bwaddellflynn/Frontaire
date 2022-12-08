@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# AdminUser.create!(email: 'admin@frontaire.com', password: 'totallytubular', password_confirmation: 'totallytubular') if Rails.env.development?
+AdminUser.destroy_all
+AdminUser.create!(email: 'admin@frontaire.com', password: 'totallytubular', password_confirmation: 'totallytubular') if Rails.env.development?
 
 require 'faker'
 require 'csv'
@@ -20,7 +21,8 @@ require 'open-uri'
   )
 end
 =end
-
+DepartureIata.destroy_all
+ArrivalIata.destroy_all
 
 csv_text = File.read(Rails.root.join('lib', 'assets', 'iata_codes.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
