@@ -31,7 +31,7 @@
               </div>
               <p>
                 <%= link_to "See Flight Details", product, class: 'btn btn-dark' %>
-                <%= form_with model: @order_item, url: cart_add_path, remote: true do |f| %>
+                <%= form_with url: cart_path, data: { turbo: false }, remote: true do |f| %>
                 <%= f.hidden_field :product_id, value: product.id %>
                 <div class="d-inline-flex">
                 <%= f.number_field :quantity, value: 1, min: 1, class: 'form-control'%>

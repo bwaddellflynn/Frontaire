@@ -1,15 +1,1 @@
-<%
-=begin%>
- <%= link_to "#{current_order.order_items.size} items with a value of $#{current_order.subtotal}", cart_path %>
-<%
-=end%>
-
-<%= turbo_frame_tag @order_items do%>
-  <% if current_order.order_items.size < 0 %>
-  <%= render cart_items%>
-  <%else %>
-    <p> No Cart</p>
-    <div id="cart">
-    </div>
-  <% end %>
-<% end %>
+<%= link_to "#{current_order.order_items.size} items with a value of $#{current_order.subtotal}", cart_path %>

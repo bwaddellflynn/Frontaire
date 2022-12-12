@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'sucess', to: 'checkout#success', as: 'checkout_success'
   end
 
-  get 'cart', to: 'cart#show'
+  get 'cart', to: 'cart#create'
   post 'cart/add', as: 'cart_add'
 
   resources :products

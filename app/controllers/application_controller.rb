@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_query
-    @query = Flight.ransack(params[:q])
-    @flight = @query.result(distinct: true)
+    @query = Product.ransack(params[:q])
+    @product = @query.result(distinct: true)
   end
 
   def initialize_session
