@@ -1,25 +1,29 @@
-# frozen_string_literal: true
-
 class CartController < ApplicationController
   def create
-    @order_items = current_order.order_items
+    # add params[:id] to cart
+    # the ollger will show in the rails serve, super useful for debugging!!
     logger.debug("Adding #{params[:id]} to cart.")
+    id = params[:id].to_i
+    unless session[:shopping_cart].include?(id)
+      session[:shopping_cart] << id
+      product = Product.find(id)
+      flash[:notice] = " ➕ #{product.destination} added to cart."
+    end
+
+    session[:shopping_cart].each do |product|
+      logger.debug(Product.id)
+    end
+    # session[:shopping_cart] << id
+    redirect_to root_path
   end
 
+  def destroy
+    # remove params[:id] from cart
+    id = params[:id].to_i
+    session[:shopping_cart].delete(id)
+    product = Product.find(id)
 
-  # def add
-  #   @cart_item ="item"
-  #   respond_to do |format|
-
-  #     format.turbo_stream do
-
-  #       render turbo_stream: [turbo_stream.replace("cart", partial: "cart/cart", locals: { cart: @order_items }),
-
-  #                             turbo_stream.replace(@order_items)]
-
-  #     end
-
-  #   end
-  # end
-
+    flash[:notice] = "➖ #{product.destination} removed from cart."
+    redirect_to root_path
+  end
 end

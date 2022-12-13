@@ -10,6 +10,7 @@
 // Active Admin's got SASS!
 @import "~@activeadmin/activeadmin/src/scss/mixins";
 @import "~@activeadmin/activeadmin/src/scss/base";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:

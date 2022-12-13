@@ -83,3 +83,5 @@ gem "stripe"
 gem 'kaminari'
 
 gem 'mini_portile2'
+
+gem 'webpacker', '~> 3.0'

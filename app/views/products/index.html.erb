@@ -1,6 +1,30 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Flights</h1>
+<div class="d-flex">
+  <div class="mr-auto p-2">
+    <h1>Flights</h1>
+  </div>
+  <div class="float-right">
+    <ul class="list-unstyled">
+      <li>
+      <% if cart.present? %>
+        <summary>Cart <sup><%= cart.size %></sup><summary>
+        <ul class="list-group list-unstyled">
+          <% @products.each do |item| %>
+          <form>
+            <li>
+              <%= form_with url: checkout_create_path, remote:true, data: { turbo: false } do%>
+              <%= hidden_field_tag(item)%>
+              <%= button_tag 'Checkout 🛒', class: 'btn btn-secondary container-fluid'%>
+              <% end %>
+            </li>
+          </form>
+          <% end %>
+          </ul>
+          <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
 <div id="products-menu-container">
   <%= render 'products/menu'%>
 </div>

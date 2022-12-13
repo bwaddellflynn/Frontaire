@@ -2,10 +2,9 @@ class ProductsController < InheritedResources::Base
   before_action :set_product, only: %i[show edit update destroy]
 
   def index
-    @product = Product
+    @products = Product
       .all
       .page(params[:page])
-    @order_item = current_order.order_items.new
   end
 
   # GET /products/1
@@ -24,7 +23,6 @@ class ProductsController < InheritedResources::Base
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.category = Category.find(params[:product][:category_id])
 
     respond_to do |format|
       if @product.save
@@ -40,7 +38,6 @@ class ProductsController < InheritedResources::Base
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    @product.category = Category.find(params[:product][:category_id])
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
